@@ -10,8 +10,8 @@
 <body>
     <?php include('nav.php')?> 
     <br>
-    <a href="inloggen.php">inloggen</a>
+    <a class="home" href="inloggen.php">inloggen</a>
     <br>
-    maak account aan <a href="registratie.php">account aanmaken</a>
+    maak account aan <a class="home" href="registratie.php">account aanmaken</a>
 </body>
 </html>

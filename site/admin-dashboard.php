@@ -2,14 +2,15 @@
 session_start();
 if(!isset($_SESSION['isIngelogd'])){
     header("location: hoofdpagina.php");
-    exit;
-}
+    exit;}
+    if (!isset($_SESSION['adminID']) || empty($_SESSION['adminID'])) {
+        // User is not logged in as an admin, redirect to inloggen.php
+        header("Location: inloggen.php");}
+    
+    
 
 
-if($_SESSION['role'] != 'administrator'){
-    header("location: hoofdpagina.php");
-    exit;
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -23,12 +24,13 @@ if($_SESSION['role'] != 'administrator'){
 
 </head>
 <body>
-<?php include('nav.php')?>
+<?php include('nav-admin.php')?>
 <br>
-maak account aan <a href="registratie.php">account aanmaken</a>
-<br>
+<br><a class="home" href="registratie.php">account aanmaken</a>
+
 <a class="home" href="logout.php">logout</a>
 <br>
-<a class="home" href="overzicht-medewerkers.php">overzicht</a>
+<a class="home" href="overzicht-medewerkers.php">overzicht werkers</a>
+<a class="home" href="overzicht-adressen.php">overzicht adressen</a>
 </body>
 </html>

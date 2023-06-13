@@ -11,6 +11,7 @@ session_start();
     <link rel="stylesheet" href="style.css?v=<?php echo time();?>">
 </head>
 <body>
-<?php include('nav.php')?>
-<a class="home" href="logout.php">logout</a>
+<?php include('nav-manager.php')?>
+<a class="home" href="logout.php">logout</a><br>
+<a class="home" href="overzicht-adressen-manager.php">overzicht adressen</a>
 </html>

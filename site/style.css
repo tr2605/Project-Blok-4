@@ -6,7 +6,7 @@ nav {
   nav ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 0.5;
   }
   
   nav ul li {
@@ -17,7 +17,8 @@ nav {
     display: inline-block;
     color: #fff;
     text-decoration: none;
-    padding: 10px;
+    padding: 20px;
+    font-size: 18px;
   }
   
   nav ul li a:hover {
@@ -62,14 +63,87 @@ nav {
   button {
     width: 100%;
     padding: 10px;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
+    background-color: #fff;
+    color: Black;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
     cursor: pointer;
   }
   
   button:hover {
     background-color: #45a049;
+    color: white;
   }
-    
+  .container {
+    width: 90%;
+    margin: 0 auto;
+}
+a.home:link,
+a.home:visited {
+  background-color: white;
+  color: black;
+  border: 2px solid #555;
+  padding: 10px 20px;
+  margin: 1%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+a.home:hover,
+a.home:active {
+  background-color: #45a049;
+  color: white;
+}
+table.list {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.list th, table.list td {
+  padding: 10px;
+  text-align: left;
+  border: 0.5px solid #555;
+}
+
+table.list th {
+  background-color: #555;
+  color: white;
+}
+
+/* CSS for the PHP code */
+table.list td:first-child {
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  /* Adjustments for iPhone devices */
+
+  .login-container {
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+  }
+
+  input[type="text"],
+  input[type=email],
+  input[type="password"] {
+    margin-bottom: 10px;
+  }
+
+  button {
+    padding: 8px;
+  }
+
+  a.home,
+  a.home:visited {
+    padding: 8px 16px;
+    margin: 0.5%;
+  }
+
+  table.list th,
+  table.list td {
+    padding: 8px;
+  }
+}

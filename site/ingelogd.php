@@ -1,6 +1,6 @@
 <?php
-require'database.php';
-if($_SERVER["REQUEST_METHOD"] !=="POST"){
+    require 'database.php';
+    if($_SERVER["REQUEST_METHOD"] !=="POST"){
     header($_SERVER["SERVER_PROTOCOL"] . " 405 Method Not Allowed", true, 405);
     
     include '405.php';
@@ -25,23 +25,29 @@ if($_SERVER["REQUEST_METHOD"] !=="POST"){
     
         $_SESSION['isIngelogd']     = true;
         $_SESSION['voornaam']       = $users['voornaam'];
-        $_SESSION['role']           = $users['role'];
+        $_SESSION['adminID']       = $users['adminID'];
+        $_SESSION['managerID']       = $users['managerID'];
+        $_SESSION['regularID']       = $users['regularID'];
+   
         $_SESSION['ID']   = $users['ID'];
     
-        if($users['role'] == 'administrator'){
-            header("location: admin-dashboard.php");
+        if (!is_null($users['adminID'])) {
+            header("Location: admin-dashboard.php");
             exit;
         }
     
-        if($users['role'] == 'manager'){
-            header("location: manager-dashboard.php");
+        if (!is_null($users['managerID'])) {
+            header("Location: manager-dashboard.php");
             exit;
         }
     
-        if($user['role'] == 'regular'){
-            header("location: klant-dashboard.php");
+        if (!is_null($users['regularID'])) {
+            header("Location: klant-dashboard.php");
             exit;
         }
     
+    }
+    else{
+        echo" Verkeerde passwoord of email";
     }
 ?>
