@@ -6,11 +6,6 @@ if(!isset($_SESSION['isIngelogd'])){
     if (!isset($_SESSION['adminID']) || empty($_SESSION['adminID'])) {
         // User is not logged in as an admin, redirect to inloggen.php
         header("Location: inloggen.php");}
-    
-    
-
-
-
 ?>
 
 <!DOCTYPE html>

@@ -109,7 +109,7 @@
                     <input type="radio" name="role" id="role" value="Manager">
                 </div>
                 <div class="form-group">
-                    <label for="role">Klant</label>
+                    <label for="role">regular</label>
                     <input type="radio" name="role" id="role" value="Regular">
                 </div>
                 

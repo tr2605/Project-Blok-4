@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(!isset($_SESSION['isIngelogd'])){
+    header("location: hoofdpagina.php");
+    exit;}
+    if (!isset($_SESSION['managerID']) || empty($_SESSION['managerID'])) {
+        // User is not logged in as an admin, redirect to inloggen.php
+        header("Location: inloggen.php");}
 ?>
 <!DOCTYPE html>
 <html lang="en">
