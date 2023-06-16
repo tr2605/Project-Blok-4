@@ -21,6 +21,7 @@ if(!isset($_SESSION['isIngelogd'])){
 <body>
 <?php include('nav-admin.php')?>
 <br>
+<h1><script type="text/javascript" src="script.js"></script></h1>
 <br><a class="home" href="registratie.php">account aanmaken</a>
 
 <a class="home" href="logout.php">logout</a>

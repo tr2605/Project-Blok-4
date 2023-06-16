@@ -31,8 +31,8 @@ if (!isset($_SESSION['isIngelogd'])) {
   <?php foreach ($all_adres as $adres) : ?>
     <table class="list">
       <tr>
-        <th>type</th>
-        <th>gebruiker</th>
+        <th></th>
+        <th></th>
       </tr>
       <tr>
         <td>Voornaam</td>

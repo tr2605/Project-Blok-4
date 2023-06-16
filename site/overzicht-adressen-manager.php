@@ -27,12 +27,51 @@ if (!isset($_SESSION['isIngelogd'])) {
 
 <body>
 <?php include('nav-manager.php') ?>
-  
+<?php
+require 'database.php';
+
+$sql = "SELECT *
+FROM Users
+WHERE adminID IS NOT NULL OR managerID IS NOT NULL OR regularID IS NOT NULL";
+
+$result = mysqli_query($conn, $sql);
+
+if ($result) {
+    // Check if there are rows returned
+    if (mysqli_num_rows($result) > 0) {
+        // Loop through each row and echo the individual's details
+        while ($row = mysqli_fetch_assoc($result)) {
+            // Echo the individual's details here
+            echo "Individual ID: " . $row['ID'] . "<br>";
+            echo "Name: " . $row['voornaam'] . "<br>";
+            echo "Role: ";
+            
+            // Determine the filled ID (adminID, managerID, regularID) for the individual
+            if (!empty($row['adminID'])) {
+                echo "Admin<br>";
+            } elseif (!empty($row['managerID'])) {
+                echo "Manager<br>";
+            } elseif (!empty($row['regularID'])) {
+                echo "Regular<br>";
+            }
+            
+            echo "<br>";
+        }
+    } else {
+        echo "No individuals found.";
+    }
+} else {
+    echo "Error executing the query: " . mysqli_error($conn);
+}
+
+// Close the database connection
+mysqli_close($conn);
+?>
   <?php foreach ($all_adres as $adres) : ?>
     <table class="list">
       <tr>
-        <th>type</th>
-        <th>gebruiker</th>
+        <th></th>
+        <th>  </th>
       </tr>
       <tr>
         <td>Voornaam</td>

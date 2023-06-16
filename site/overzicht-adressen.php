@@ -27,12 +27,55 @@ if (!isset($_SESSION['isIngelogd'])) {
 
 <body>
 <?php include('nav-admin.php') ?>
+
+<?php
+require 'database.php';
+
+$sql = "SELECT COUNT(*) AS address_count FROM Adres";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+
+echo 'Totale hoeveelheid addressen : ' . $row['address_count'];
+?><br>
+<?php 
+require 'database.php';
+
+$sql = "SELECT 
+            SUM(CASE WHEN adminID IS NOT NULL THEN 1 ELSE 0 END) AS admin_count,
+            SUM(CASE WHEN managerID IS NOT NULL THEN 1 ELSE 0 END) AS manager_count,
+            SUM(CASE WHEN regularID IS NOT NULL THEN 1 ELSE 0 END) AS regular_count
+        FROM Users
+        WHERE adminID IS NOT NULL OR managerID IS NOT NULL OR regularID IS NOT NULL";
+
+$result = mysqli_query($conn, $sql);
+
+if ($result) {
+    // Check if there is a row returned
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        
+        // Echo the counts for adminID, managerID, and regularID
+        echo "Admin count: " . $row['admin_count'] . "<br>";
+        echo "Manager count: " . $row['manager_count'] . "<br>";
+        echo "Regular count: " . $row['regular_count'] . "<br>";
+    } else {
+        echo "No individuals found.";
+    }
+} else {
+    echo "Error executing the query: " . mysqli_error($conn);
+}
+
+// Close the database connection
+mysqli_close($conn);
+?>
+
+</P>
   
   <?php foreach ($all_adres as $adres) : ?>
     <table class="list">
       <tr>
-        <th>type</th>
-        <th>gebruiker</th>
+        <th></th>
+        <th></th>
       </tr>
       <tr>
         <td>Voornaam</td>
@@ -65,6 +108,10 @@ if (!isset($_SESSION['isIngelogd'])) {
       <tr>
         <td>Omschrijving</td>
         <td><?php echo $adres["omschrijving"]; ?></td>
+      </tr>
+      <tr>
+        <td>notite</td>
+        <td><?php echo $adres["notitie"]; ?></td>
       </tr>
       <tr>
         <td>Huisnummer</td>

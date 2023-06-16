@@ -1,6 +1,7 @@
 nav {
     background-color: #333;
     color: #fff;
+    border-radius: 3px;
   }
   
   nav ul {
@@ -25,13 +26,19 @@ nav {
     background-color: #555;
   }
   
-  
   body {
     font-family: Arial, sans-serif;
     background-color: #f2f2f2;
     margin: 0;
     padding: 0;
+    background-image: url('3a3b7b936e3ff87016de28ea865cbbb6.jpg');
+    background-repeat: no-repeat;
+    background-size:1000vh;
+    background-position: center center;
+    color: white;
   }
+  
+  
   
   .login-container {
     background-color: #fff;
@@ -65,14 +72,15 @@ nav {
     padding: 10px;
     background-color: #fff;
     color: Black;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: #555;
     border-radius: 5px;
     cursor: pointer;
   }
   
   button:hover {
-    background-color: #45a049;
+    background-color: #1ccbfc;
     color: white;
+    box-shadow: 2px 2px 4px rgba(51, 224, 247, 0.4);
   }
   .container {
     width: 90%;
@@ -88,27 +96,30 @@ a.home:visited {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: #000000;
+  border-radius: 5px;
 }
 
 a.home:hover,
 a.home:active {
-  background-color: #45a049;
+  background-color: #2fd3ec;
   color: white;
+  box-shadow: 2px 2px 4px rgba(58, 195, 219, 0.4);
 }
 table.list {
   width: 100%;
   border-collapse: collapse;
+  color: white;
 }
 
 table.list th, table.list td {
   padding: 10px;
   text-align: left;
-  border: 0.5px solid #555;
+  border: 0.5px solid #a3b0bc;
 }
 
 table.list th {
-  background-color: #555;
+  background-color: #8ea0b1;
   color: white;
 }
 
